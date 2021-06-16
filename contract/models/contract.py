@@ -670,7 +670,20 @@ class ContractContract(models.Model):
     def action_aditivar_contrato(self):
         self.cd_aditivo_n += 1
 
-
+    def write(self, vals):
+        if "date_end" in vals:
+            self.message_post(body=_(
+                _("A data final foi alterada de %s para: '%s'.")
+                % (self.date_end, vals["date_end"])
+            ))
+        if "modification_ids" in vals:
+            res = super(
+                ContractContract, self.with_context(bypass_modification_send=True)
+            ).write(vals)
+            self._modification_mail_send()
+        else:
+            res = super(ContractContract, self).write(vals)
+        return res
 
     #  fim de código Eduardo e Gabriel
 
