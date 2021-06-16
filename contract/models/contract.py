@@ -654,13 +654,13 @@ class ContractContract(models.Model):
     def action_confirmar_receber_fatura(self):
         self.write({'state': 'confirmado'})
 
-        self._clear_receber_fatura_line_unused()
+        # self._clear_receber_fatura_line_unused()
         
-        if self._exist_receber_fatura_to_contrato_fornecedor():
-            self._create_receber_fatura_line()
-        else:
-            self._create_receber_fatura()
-            self._create_receber_fatura_line()    
+        # if self._exist_receber_fatura_to_contrato_fornecedor():
+        #     self._create_receber_fatura_line()
+        # else:
+        #     self._create_receber_fatura()
+        #     self._create_receber_fatura_line()    
         
     def _create_receber_fatura_line(self):
         exist_receber_fatura = self._exist_receber_fatura_to_contrato_fornecedor()
