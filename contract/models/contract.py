@@ -669,7 +669,14 @@ class ContractContract(models.Model):
 
     def action_aditivar_contrato(self):
         self.cd_aditivo_n += 1
-        
+        write(self)
+
+    def write(self, *args):
+        raise ValidationError(super().write(*args))
+        # return super().write(*args)    
+
+    #  fim de código Eduardo e Gabriel
+
     def _create_receber_fatura_line(self):
         exist_receber_fatura = self._exist_receber_fatura_to_contrato_fornecedor()
         if exist_receber_fatura:
