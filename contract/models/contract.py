@@ -660,7 +660,10 @@ class ContractContract(models.Model):
         #     self._create_receber_fatura_line()
         # else:
         #     self._create_receber_fatura()
-        #     self._create_receber_fatura_line()    
+        #     self._create_receber_fatura_line()  
+
+    def action_aditivar_contrato(self):
+        return  
         
     def _create_receber_fatura_line(self):
         exist_receber_fatura = self._exist_receber_fatura_to_contrato_fornecedor()
