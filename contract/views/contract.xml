@@ -130,7 +130,7 @@
                         </group>
                             <field
                                 name="cd_aditivo_n"
-                                attrs="{'invisible': ['&amp;', ('state','!=','confirmado'), ('btn_aditivar','=','True')]}"
+                                attrs="{'invisible': ['&amp;', ('state','!=','confirmado'), ('cd_aditivo_n','=','0')]}"
                             />
                         <group>
                         </group>
