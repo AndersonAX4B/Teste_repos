@@ -45,7 +45,7 @@
         "views/res_config_settings.xml",
         "views/contract_terminate_reason.xml",
         "views/contract_portal_templates.xml",
-        "views/receber_fatura_view.xml",
+        # "views/receber_fatura_view.xml",
         "views/receber_fatura_line_view.xml"
     ],
     "installable": True,
