@@ -128,6 +128,12 @@
                                 attrs="{'readonly': [('is_terminated','=',True)]}"
                             />
                         </group>
+                            <field
+                                name="cd_aditivo_n"
+                                attrs="{'invisible': ['&amp;', ('state','!=','confirmado'), ('btn_aditivar','=','True')]}"
+                            />
+                        <group>
+                        </group>
                         <group>
                             <field
                                 name="contract_template_id"

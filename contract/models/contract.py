@@ -662,8 +662,12 @@ class ContractContract(models.Model):
         #     self._create_receber_fatura()
         #     self._create_receber_fatura_line()  
 
+    # Variaveis de Ambiente Gabriel e Eduardo
+    btn_aditivar = False
+    cd_aditivo_n = fields.Integer(string="Aditivo Nº", readonly="1")
+
     def action_aditivar_contrato(self):
-        return  
+        btn_aditivar = True
         
     def _create_receber_fatura_line(self):
         exist_receber_fatura = self._exist_receber_fatura_to_contrato_fornecedor()
