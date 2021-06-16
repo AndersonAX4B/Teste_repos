@@ -665,10 +665,10 @@ class ContractContract(models.Model):
     # Variaveis de Ambiente Gabriel e Eduardo
 
     # invoice_count = fields.Integer(compute="_compute_invoice_count")
-    cd_aditivo_n = fields.Integer(string="Aditivo Nº")
+    cd_aditivo_n = fields.Integer(string="Aditivo Nº", readonly="1", default=0)
 
     def action_aditivar_contrato(self):
-        return
+        cd_aditivo_n += 1
         
     def _create_receber_fatura_line(self):
         exist_receber_fatura = self._exist_receber_fatura_to_contrato_fornecedor()
