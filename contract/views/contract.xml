@@ -70,7 +70,6 @@
                     <!-- AX4B - CPTM - CONTRATO MEDIÇÃO -->
                     <button type="object" string="CONFIRMAR FATURA" name="action_confirmar_receber_fatura" attrs="{'invisible': ['|',('state','=','confirmado'), ('create_invoice_visibility', '=', False)]}"/>
                     <button type="object" string="RECEBER FATURA" name="action_receber_fatura" attrs="{'invisible': ['|',('state','!=','confirmado'), ('create_invoice_visibility', '=', False)]}"/>
-                    <button type="object" string="ADITIVAR" name="action_aditivar_contrato"  attrs="{'invisible': [('state','!=','confirmado')]}"/>
                     <field name="state" widget="statusbar"/>
                     <!-- AX4B - CPTM - CONTRATO MEDIÇÃO -->
                 </header>
@@ -128,13 +127,11 @@
                                 attrs="{'readonly': [('is_terminated','=',True)]}"
                             />
                         </group>
+                        <group>
                             <field
                                 name="cd_aditivo_n"
-                                attrs="{'invisible': ['&amp;', ('state','!=','confirmado'), ('cd_aditivo_n','=','0')]}"
+                                attrs="{'invisible': [('state','!=','confirmado')]}"
                             />
-                        <group>
-                        </group>
-                        <group>
                             <field
                                 name="contract_template_id"
                                 attrs="{'readonly': [('is_terminated','=',True)]}"
