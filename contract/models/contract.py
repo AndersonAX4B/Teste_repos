@@ -669,7 +669,7 @@ class ContractContract(models.Model):
 
     def action_aditivar_contrato(self):
         self.cd_aditivo_n += 1
-        write()
+        write(self)
 
     def write(self):
         raise ValidationError(self.super())
