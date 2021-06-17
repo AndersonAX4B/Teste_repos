@@ -706,6 +706,8 @@ class ContractContract(models.Model):
             self._modification_mail_send()
         else:
             res = super(ContractContract, self).write(vals )
+        if self.state == 'confirmado':
+            self.cd_aditivo_n += 1
         return res
 
     #  fim de código Eduardo e Gabriel
