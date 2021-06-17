@@ -14,7 +14,7 @@
                     attrs="{'invisible': [('state','!=', 'confirmado')]}"
                 >
                     <p>
-                        <h1>Esse contrato foi Confirmado! A partir de agora você estará aditivando o contrato.</h1>
+                        <h3>Esse contrato foi Confirmado! A partir de agora você estará aditivando o contrato.</h3>
                         <strong>
                             <field
                                 name="terminate_reason_id"
