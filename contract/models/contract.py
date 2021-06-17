@@ -721,7 +721,7 @@ class ContractContract(models.Model):
         if"partner_id" in vals:
             self.message_post(body=_(
                 _("O customer foi alterado de %s para: '%s'.")
-                %(self.partner_id, vals["partner_id"])
+                %(f"{self.partner_id.partner_id.name}, {self.partner_id.name}", vals["partner_id"])
             ))
         if"pricelist_id" in vals:
             self.message_post(body=_(
