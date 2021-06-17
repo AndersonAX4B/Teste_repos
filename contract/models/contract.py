@@ -718,32 +718,32 @@ class ContractContract(models.Model):
                 _("A fiscal position foi alterado de %s para: '%s'.")
                 % (self.recurring_next_date, vals["recurring_next_date"])
             ))
-        if"partner_id"invals:
+        if"partner_id" in vals:
             self.message_post(body=_(
                 _("O customer foi alterado de %s para: '%s'.")
                 %(self.partner_id, vals["partner_id"])
             ))
-        if"pricelist_id"invals:
+        if"pricelist_id" in vals:
             self.message_post(body=_(
                 _("O pricelist foi alterado de %s para: '%s'.")
                 %(self.pricelist_id, vals["pricelist_id"])
             ))
-        if"payment_term_id"invals:
+        if"payment_term_id" in vals:
             self.message_post(body=_(
                 _("Os Termos de Pagamentos foram alterados de %s para: '%s'.")
                 %(self.payment_term_id, vals["payment_term_id"])
             ))
-        if"user_id"invals:
+        if"user_id" in vals:
             self.message_post(body=_(
                 _("O Usuário foi alterado de %s para: '%s'.")
                 %(self.user_id, vals["user_id"])
             ))
-        if"recurring_interval"invals:
+        if"recurring_interval" in vals:
             self.message_post(body=_(
                 _("O contract template foi altarado de %s para: '%s'.")
                 %(self.recurring_interval, vals["recurring_interval"])
             ))
-        if"recurring_interval_type"invals:
+        if"recurring_interval_type" in vals:
             self.message_post(body=_(
                 _("O contract template foi altarado de %s para: '%s'.")
                 %(self.recurring_interval_type, vals["recurring_interval_type"])
