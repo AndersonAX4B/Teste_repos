@@ -701,7 +701,7 @@ class ContractContract(models.Model):
         if "journal_id" in vals:
             self.message_post(body=_(
                 _("O journal id foi alterado de %s para: '%s'.")
-                % (self.journal_id.name, vals["journal_id.id"])
+                % (self.journal_id.name, vals["journal_id"])
             ))
         if "tags_ids" in vals:
             self.message_post(body=_(
