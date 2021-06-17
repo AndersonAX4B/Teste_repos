@@ -687,7 +687,7 @@ class ContractContract(models.Model):
         if "contract_template_id" in vals:
             self.message_post(body=_(
                 _("O contract template foi alterado de %s para: '%s'.")
-                %(self.contract_template_id.id, vals["contract_template_id"].id)
+                %(self.contract_template_id.id, vals["contract_template_id"])
             ))
         if "modification_ids" in vals:
             res = super(
