@@ -143,7 +143,11 @@ class ContractContract(models.Model):
         records._set_start_contract_modification()
         return records
 
+
+
     def write(self, vals):
+        if self.state == 'confirmado':
+            self.action_aditivar_contrato()
         if "modification_ids" in vals:
             res = super(
                 ContractContract, self.with_context(bypass_modification_send=True)
@@ -678,24 +682,24 @@ class ContractContract(models.Model):
         # self.date_aditivacao = self.date.today()
     # AX4B - CPTM - ADITIVAR CONTRATO
 
-    def write(self, vals):
-        # AX4B - CPTM - ADITIVAR CONTRATO
-        if self.state == 'confirmado':
-            self.action_aditivar_contrato()
-        # AX4B - CPTM - ADITIVAR CONTRATO
-        if "date_end" in vals:
-            self.message_post(body=_(
-                _("A data final foi alterada de %s para: '%s'.")
-                % (self.date_end, vals["date_end"])
-            ))
-        if "modification_ids" in vals:
-            res = super(
-                ContractContract, self.with_context(bypass_modification_send=True)
-            ).write(vals)
-            self._modification_mail_send()
-        else:
-            res = super(ContractContract, self).write(vals)
-        return res
+    # def write(self, vals):
+    #     # AX4B - CPTM - ADITIVAR CONTRATO
+    #     if self.state == 'confirmado':
+    #         self.action_aditivar_contrato()
+    #     # AX4B - CPTM - ADITIVAR CONTRATO
+    #     if "date_end" in vals:
+    #         self.message_post(body=_(
+    #             _("A data final foi alterada de %s para: '%s'.")
+    #             % (self.date_end, vals["date_end"])
+    #         ))
+    #     if "modification_ids" in vals:
+    #         res = super(
+    #             ContractContract, self.with_context(bypass_modification_send=True)
+    #         ).write(vals)
+    #         self._modification_mail_send()
+    #     else:
+    #         res = super(ContractContract, self).write(vals)
+    #     return res
 
     #  fim de código Eduardo e Gabriel
 
