@@ -669,7 +669,7 @@ class ContractContract(models.Model):
     from datetime import date
     cd_aditivo_n = fields.Integer(string="Aditivo Nº", readonly="1", default=0)
     date_confirmed = date.today()
-    date_aditivacao = field.Date(string="Data de Aditivaçao", readonly="1")
+    date_aditivacao = fields.Date(string="Data de Aditivaçao", readonly="1")
 
     def action_aditivar_contrato(self):
         self.cd_aditivo_n += 1
