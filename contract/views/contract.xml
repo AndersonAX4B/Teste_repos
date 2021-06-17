@@ -11,6 +11,28 @@
                     class="alert alert-danger"
                     role="alert"
                     style="margin-bottom:0px;"
+                    attrs="{'invisible': [('state','!=', 'confirmado')]}"
+                >
+                    <p>
+                        Esse contrato foi Confirmado! A partir de agora você estará aditivando o contrato.
+                        <strong>
+                            <field
+                                name="terminate_reason_id"
+                                options="{'no_open':True}"
+                            />
+                        </strong>
+                        on
+                        <field name="terminate_date" />
+                        .
+                    </p>
+                    <p>
+                        <field name="terminate_comment" />
+                    </p>
+                </div>
+                <div
+                    class="alert alert-danger"
+                    role="alert"
+                    style="margin-bottom:0px;"
                     attrs="{'invisible': [('is_terminated','=',False)]}"
                 >
                     <p>
