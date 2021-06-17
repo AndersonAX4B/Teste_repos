@@ -708,14 +708,9 @@ class ContractContract(models.Model):
                 _("A data de inicio foi alterada de %s para: '%s'.")
                 % (self.date_start, vals["date_start"])
             ))
-        if "date_start" in vals:
-            self.message_post(body=_(
-                _("A fiscal position foi alterado de %s para: '%s'.")
-                % (self.date_start, vals["date_start"])
-            ))
         if "recurring_next_date" in vals:
             self.message_post(body=_(
-                _("A fiscal position foi alterado de %s para: '%s'.")
+                _("O recurring next date foi alterado de %s para: '%s'.")
                 % (self.recurring_next_date, vals["recurring_next_date"])
             ))
         if"partner_id" in vals:
