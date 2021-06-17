@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <form>
                 <field name="is_terminated" invisible="1" />
-                <div
+                <!-- <div
                     class="alert alert-danger"
                     role="alert"
                     style="margin-bottom:0px;"
@@ -28,7 +28,7 @@
                     <p>
                         <field name="terminate_comment" />
                     </p>
-                </div>
+                </div> -->
                 <div
                     class="alert alert-danger"
                     role="alert"
