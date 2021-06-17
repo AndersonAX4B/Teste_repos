@@ -720,7 +720,7 @@ class ContractContract(models.Model):
             ))
         if"partner_id" in vals:
             self.message_post(body=_(
-                _("O customer foi alterado de %s para: '%s'.")
+                _("O Supplier foi alterado de %s para: '%s'.")
                 %(self.partner_id.name, vals["partner_id"])
             ))
         if"pricelist_id" in vals:
@@ -758,6 +758,31 @@ class ContractContract(models.Model):
                 _("O recurring invoicing type foi altarado de %s para: '%s'.")
                 %(self.recurring_invoicing_type, vals["recurring_invoicing_type"])
             ))
+        if"code" in vals:
+            self.message_post(body=_(
+                _("O code foi altarado de %s para: '%s'.")
+                %(self.code, vals["code"])
+            ))
+        if"group_id" in vals:
+            self.message_post(body=_(
+                _("O grupo foi altarado de %s para: '%s'.")
+                %(self.group_id, vals["group_id"])
+            ))
+        if"company_id" in vals:
+            self.message_post(body=_(
+                _("A company id foi altarado de %s para: '%s'.")
+                %(self.company_id, vals["company_id"])
+            ))
+        if"invoice_partner_id " in vals:
+            self.message_post(body=_(
+                _("A company id foi altarado de %s para: '%s'.")
+                %(self.invoice_partner_id , vals["invoice_partner_id "])
+            ))
+        if "contract_line_fixed_ids" in vals:
+            res = super(
+                ContractContract, self.with_context(bypass_modification_send=True)
+            ).write(vals)
+            self._modification_mail_send()
         if "modification_ids" in vals:
             res = super(
                 ContractContract, self.with_context(bypass_modification_send=True)
