@@ -673,7 +673,7 @@ class ContractContract(models.Model):
     
     def action_aditivar_contrato(self):
         self.date_aditivacao = self.date.today()
-        raise ValidationError(self.date_aditivacao)
+        raise ValidationError(self)
         # self.cd_aditivo_n = self.cd_aditivo_n + 1
         # self.date_aditivacao = self.date.today()
     # AX4B - CPTM - ADITIVAR CONTRATO
