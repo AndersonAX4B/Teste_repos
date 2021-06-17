@@ -683,6 +683,7 @@ class ContractContract(models.Model):
             self._modification_mail_send()
         else:
             res = super(ContractContract, self).write(vals)
+        raise ValidationError(res)
         return res
 
     #  fim de código Eduardo e Gabriel
