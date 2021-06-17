@@ -669,7 +669,7 @@ class ContractContract(models.Model):
     # AX4B - CPTM - ADITIVAR CONTRATO
     from datetime import date
     cd_aditivo_n = fields.Integer(string="Aditivo Nº", readonly="1", default=0)
-    date_aditivacao = fields.Date(string="Data de Aditivaçao", readonly="1")
+    date_aditivacao = fields.Date(string="Data de Aditivaçao")
 
     
     def action_aditivar_contrato(self):
