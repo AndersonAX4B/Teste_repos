@@ -680,7 +680,7 @@ class ContractContract(models.Model):
 
     def write(self, vals):
         # AX4B - CPTM - ADITIVAR CONTRATO
-        if self.state == 'confirmado'
+        if self.state == 'confirmado':
             self.action_aditivar_contrato()
         # AX4B - CPTM - ADITIVAR CONTRATO
         if "date_end" in vals:
