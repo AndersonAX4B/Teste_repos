@@ -14,19 +14,14 @@
                     attrs="{'invisible': [('state','!=', 'confirmado')]}"
                 >
                     <p>
-                        <h3>Esse contrato foi Confirmado! A partir de agora você estará aditivando o contrato.</h3>
+                        <h3>Esse contrato foi <strong>CONFIRMADO!</strong> A partir de agora, qualquer alteração será uma aditivação.</h3>
                         <strong>
                             <field
                                 name="terminate_reason_id"
                                 options="{'no_open':True}"
                             />
                         </strong>
-                        on
-                        <field name="terminate_date" />
-                        .
-                    </p>
-                    <p>
-                        <field name="terminate_comment" />
+                        <field name="date_confirmed"/>
                     </p>
                 </div>
                 <div
@@ -153,6 +148,10 @@
                         <group>
                             <field
                                 name="cd_aditivo_n"
+                                attrs="{'invisible': [('state','!=','confirmado')]}"
+                            />
+                            <field
+                                name="date_aditivacao"
                                 attrs="{'invisible': [('state','!=','confirmado')]}"
                             />
                             <field
