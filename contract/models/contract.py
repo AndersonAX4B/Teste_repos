@@ -693,8 +693,20 @@ class ContractContract(models.Model):
             res = super(ContractContract, self).write(vals)
         return res
         
-        # def write(self, vals):
-        #     if ""
+    def write(self, vals):
+        if "contract_template_id" in vals:
+            self.message_post(body=_(
+                _("O contract template foi altarado de %s para: '%s'.")
+                %(self.contract_template_id, vals["contract_template_id"])
+            ))
+        if "modification_ids" in vals:
+            res = super(
+                ContractContract, self.with_context(bypass_modification_send=True)
+            ).write(vals)
+            self._modification_mail_send()
+        else:
+            res = super(ContractContract, self).write(vals )
+        return res
 
     #  fim de código Eduardo e Gabriel
 
