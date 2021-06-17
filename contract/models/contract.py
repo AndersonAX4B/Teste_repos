@@ -671,14 +671,16 @@ class ContractContract(models.Model):
     date_confirmed = fields.Date()
     date_aditivacao = fields.Date(string="Data de Aditivaçao", readonly="1")
 
-    def action_aditivar_contrato(self):
-        self.cd_aditivo_n += 1
-        self.date_confirmed = self.date.today()
-        self.date_aditivacao = self.date.today()
+    # def action_aditivar_contrato(self):
+    #     self.cd_aditivo_n += 1
+    #     self.date_confirmed = self.date.today()
+    #     self.date_aditivacao = self.date.today()
 
     def write(self, vals):
         if self.state == 'confirmado':
-            self.action_aditivar_contrato()
+            self.cd_aditivo_n += 1
+            self.date_confirmed = self.date.today()
+            self.date_aditivacao = self.date.today()
         if "date_end" in vals:
             self.message_post(body=_(
                 _("A data final foi alterada de %s para: '%s'.")
