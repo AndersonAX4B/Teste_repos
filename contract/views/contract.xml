@@ -7,14 +7,14 @@
         <field name="arch" type="xml">
             <form>
                 <field name="is_terminated" invisible="1" />
-                <!-- <div
+                <div
                     class="alert alert-danger"
                     role="alert"
                     style="margin-bottom:0px;"
                     attrs="{'invisible': [('state','!=', 'confirmado')]}"
                 >
                     <p>
-                        Esse contrato foi Confirmado! A partir de agora você estará aditivando o contrato.
+                        <h1>Esse contrato foi Confirmado! A partir de agora você estará aditivando o contrato.</h1>
                         <strong>
                             <field
                                 name="terminate_reason_id"
@@ -28,7 +28,7 @@
                     <p>
                         <field name="terminate_comment" />
                     </p>
-                </div> -->
+                </div>
                 <div
                     class="alert alert-danger"
                     role="alert"
