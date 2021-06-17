@@ -673,15 +673,15 @@ class ContractContract(models.Model):
 
     
     def action_aditivar_contrato(self):
+        ValidationError(self.date_aditivacao)
         # self.cd_aditivo_n = self.cd_aditivo_n + 1
-        self.date_aditivacao = self.date.today()
+        # self.date_aditivacao = self.date.today()
     # AX4B - CPTM - ADITIVAR CONTRATO
 
     def write(self, vals):
         # AX4B - CPTM - ADITIVAR CONTRATO
-        ValidationError(self.date_aditivacao)
-        # if self.state == 'confirmado'
-        #     self.action_aditivar_contrato()
+        if self.state == 'confirmado'
+            self.action_aditivar_contrato()
         # AX4B - CPTM - ADITIVAR CONTRATO
         if "date_end" in vals:
             self.message_post(body=_(
