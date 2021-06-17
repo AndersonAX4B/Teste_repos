@@ -653,7 +653,7 @@ class ContractContract(models.Model):
         
     def action_confirmar_receber_fatura(self):
         self.write({'state': 'confirmado'})
-        self.date_confirmed = date.today()
+        self.date_confirmed = self.date.today()
 
         # self._clear_receber_fatura_line_unused()
         
@@ -673,8 +673,8 @@ class ContractContract(models.Model):
 
     def action_aditivar_contrato(self):
         self.cd_aditivo_n += 1
-        self.date_confirmed = date.today()
-        self.date_aditivacao = date.today()
+        self.date_confirmed = self.date.today()
+        self.date_aditivacao = self.date.today()
 
     def write(self, vals):
         if "date_end" in vals:
