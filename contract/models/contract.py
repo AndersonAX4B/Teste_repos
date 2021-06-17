@@ -678,6 +678,11 @@ class ContractContract(models.Model):
     def write(self, vals):
         # if self.state == 'confirmado':
         #     self.action_aditivar_contrato()
+        if "name" in vals:
+            self.message_post(body=_(
+                _("A nome foi alterada de %s para: '%s'.")
+                % (self.name, vals["name"])
+            ))
         if "date_end" in vals:
             self.message_post(body=_(
                 _("A data final foi alterada de %s para: '%s'.")
@@ -738,10 +743,20 @@ class ContractContract(models.Model):
                 _("O contract template foi altarado de %s para: '%s'.")
                 %(self.recurring_interval, vals["recurring_interval"])
             ))
-        if"recurring_interval_type" in vals:
+        if"recurring_rule_type" in vals:
             self.message_post(body=_(
                 _("O contract template foi altarado de %s para: '%s'.")
-                %(self.recurring_interval_type, vals["recurring_interval_type"])
+                %(self.recurring_rule_type, vals["recurring_rule_type"])
+            ))
+        if"line_recurrence" in vals:
+            self.message_post(body=_(
+                _("A line recurrence foi altarado de %s para: '%s'.")
+                %(self.line_recurrence, vals["line_recurrence"])
+            ))
+        if"recurring_invoicing_type" in vals:
+            self.message_post(body=_(
+                _("O recurring invoicing type foi altarado de %s para: '%s'.")
+                %(self.recurring_invoicing_type, vals["recurring_invoicing_type"])
             ))
         if "modification_ids" in vals:
             res = super(
