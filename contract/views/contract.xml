@@ -7,6 +7,8 @@
         <field name="arch" type="xml">
             <form>
                 <field name="is_terminated" invisible="1" />
+                
+                <!-- AX4B ADITIVAÇÃO CONTRATO -->
                 <div
                     class="alert alert-danger"
                     role="alert"
@@ -14,16 +16,16 @@
                     attrs="{'invisible': [('state','!=', 'confirmado')]}"
                 >
                     <p>
-                        <h3>Esse contrato foi <strong>CONFIRMADO!</strong> A partir de agora, qualquer alteração será uma aditivação.</h3>
+                        <h3>Esse contrato foi <strong>CONFIRMADO!</strong> Qualquer alteração será uma <strong>ADITIVAÇÃO.</strong></h3>
                         <strong>
                             <field
                                 name="terminate_reason_id"
                                 options="{'no_open':True}"
                             />
                         </strong>
-                        <field name="date_confirmed"/>
                     </p>
                 </div>
+                <!-- AX4B ADITIVAÇÃO CONTRATO -->
                 <div
                     class="alert alert-danger"
                     role="alert"

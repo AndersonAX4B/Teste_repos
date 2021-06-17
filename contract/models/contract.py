@@ -653,7 +653,6 @@ class ContractContract(models.Model):
         
     def action_confirmar_receber_fatura(self):
         self.write({'state': 'confirmado'})
-        self.date_confirmed = self.date.today()
 
         # self._clear_receber_fatura_line_unused()
         
@@ -666,123 +665,29 @@ class ContractContract(models.Model):
     # Variaveis de Ambiente Gabriel e Eduardo
 
     # invoice_count = fields.Integer(compute="_compute_invoice_count")
+
+    # AX4B - CPTM - ADITIVAR CONTRATO
     from datetime import date
     cd_aditivo_n = fields.Integer(string="Aditivo Nº", readonly="1", default=0)
-    date_confirmed = fields.Date()
     date_aditivacao = fields.Date(string="Data de Aditivaçao", readonly="1")
 
+    
     def action_aditivar_contrato(self):
-        self.cd_aditivo_n = self.cd_aditivo_n + 1
+        # self.cd_aditivo_n = self.cd_aditivo_n + 1
         self.date_aditivacao = self.date.today()
+    # AX4B - CPTM - ADITIVAR CONTRATO
 
     def write(self, vals):
-        # if self.state == 'confirmado':
+        # AX4B - CPTM - ADITIVAR CONTRATO
+        ValidationError(date_aditivacao)
+        # if self.state == 'confirmado'
         #     self.action_aditivar_contrato()
-        if "name" in vals:
-            self.message_post(body=_(
-                _("A nome foi alterada de %s para: '%s'.")
-                % (self.name, vals["name"])
-            ))
+        # AX4B - CPTM - ADITIVAR CONTRATO
         if "date_end" in vals:
             self.message_post(body=_(
                 _("A data final foi alterada de %s para: '%s'.")
                 % (self.date_end, vals["date_end"])
             ))
-        if "contract_template_id" in vals:
-            self.message_post(body=_(
-                _("O contract template foi alterado de %s para: '%s'.")
-                % (self.contract_template_id.id, vals["contract_template_id"])
-            ))
-        if "fiscal_position_id" in vals:
-            self.message_post(body=_(
-                _("A fiscal position foi alterado de %s para: '%s'.")
-                % (self.fiscal_position_id, vals["fiscal_position_id"])
-            ))
-        if "journal_id" in vals:
-            self.message_post(body=_(
-                _("O journal id foi alterado de %s para: '%s'.")
-                % (self.journal_id.name, vals["journal_id"])
-            ))
-        if "tags_ids" in vals:
-            self.message_post(body=_(
-                _("A tags de id foi alterada de %s para: '%s'.")
-                % (self.tags_ids, vals["tags_ids"])
-            ))
-        if "date_start" in vals:
-            self.message_post(body=_(
-                _("A data de inicio foi alterada de %s para: '%s'.")
-                % (self.date_start, vals["date_start"])
-            ))
-        if "recurring_next_date" in vals:
-            self.message_post(body=_(
-                _("O recurring next date foi alterado de %s para: '%s'.")
-                % (self.recurring_next_date, vals["recurring_next_date"])
-            ))
-        if"partner_id" in vals:
-            self.message_post(body=_(
-                _("O Supplier foi alterado de %s para: '%s'.")
-                %(self.partner_id.name, vals["partner_id"])
-            ))
-        if"pricelist_id" in vals:
-            self.message_post(body=_(
-                _("O pricelist foi alterado de %s para: '%s'.")
-                %(self.pricelist_id, vals["pricelist_id"])
-            ))
-        if"payment_term_id" in vals:
-            self.message_post(body=_(
-                _("Os Termos de Pagamentos foram alterados de %s para: '%s'.")
-                %(self.payment_term_id, vals["payment_term_id"])
-            ))
-        if"user_id" in vals:
-            self.message_post(body=_(
-                _("O Usuário foi alterado de %s para: '%s'.")
-                %(self.user_id, vals["user_id"])
-            ))
-        if"recurring_interval" in vals:
-            self.message_post(body=_(
-                _("O contract template foi altarado de %s para: '%s'.")
-                %(self.recurring_interval, vals["recurring_interval"])
-            ))
-        if"recurring_rule_type" in vals:
-            self.message_post(body=_(
-                _("O contract template foi altarado de %s para: '%s'.")
-                %(self.recurring_rule_type, vals["recurring_rule_type"])
-            ))
-        if"line_recurrence" in vals:
-            self.message_post(body=_(
-                _("A line recurrence foi altarado de %s para: '%s'.")
-                %(self.line_recurrence, vals["line_recurrence"])
-            ))
-        if"recurring_invoicing_type" in vals:
-            self.message_post(body=_(
-                _("O recurring invoicing type foi altarado de %s para: '%s'.")
-                %(self.recurring_invoicing_type, vals["recurring_invoicing_type"])
-            ))
-        if"code" in vals:
-            self.message_post(body=_(
-                _("O code foi altarado de %s para: '%s'.")
-                %(self.code, vals["code"])
-            ))
-        if"group_id" in vals:
-            self.message_post(body=_(
-                _("O grupo foi altarado de %s para: '%s'.")
-                %(self.group_id, vals["group_id"])
-            ))
-        if"company_id" in vals:
-            self.message_post(body=_(
-                _("A company id foi altarado de %s para: '%s'.")
-                %(self.company_id, vals["company_id"])
-            ))
-        if"invoice_partner_id " in vals:
-            self.message_post(body=_(
-                _("A company id foi altarado de %s para: '%s'.")
-                %(self.invoice_partner_id , vals["invoice_partner_id "])
-            ))
-        if "contract_line_fixed_ids" in vals:
-            res = super(
-                ContractContract, self.with_context(bypass_modification_send=True)
-            ).write(vals)
-            self._modification_mail_send()
         if "modification_ids" in vals:
             res = super(
                 ContractContract, self.with_context(bypass_modification_send=True)
