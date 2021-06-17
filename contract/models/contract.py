@@ -678,7 +678,7 @@ class ContractContract(models.Model):
 
     def write(self, vals):
         if self.state == 'confirmado':
-            ValidationError(f"cd_aditivo_n: {vals['cd_aditivo_n']}\n date_confirmed: {vals['date_confirmed']}\n date_aditivacao: vals{['date_aditivacao']}\n date_end: {vals['date_end']}\n")
+            ValidationError(vals["cd_aditivo_n"])
             self.action_aditivar_contrato()
         if "date_end" in vals:
             self.message_post(body=_(
