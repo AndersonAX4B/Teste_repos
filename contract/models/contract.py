@@ -678,7 +678,7 @@ class ContractContract(models.Model):
 
     def write(self, vals):
         if self.state == 'confirmado':
-            action_aditivar_contrato()
+            self.action_aditivar_contrato()
         if "date_end" in vals:
             self.message_post(body=_(
                 _("A data final foi alterada de %s para: '%s'.")
