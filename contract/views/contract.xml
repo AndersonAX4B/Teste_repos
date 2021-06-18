@@ -148,13 +148,15 @@
                             />
                         </group>
                         <group>
-                            <field
-                                name="cd_aditivo_n"
-                                attrs="{'invisible': [('state','!=','confirmado')]}"
-                            />
                             <!-- AX4B - CPTM - ADITIVAR CONTRATO -->
                             <field
+                                name="cd_aditivo_n"
+                                readonly="1"
+                                attrs="{'invisible': [('state','!=','confirmado')]}"
+                            />
+                            <field
                                 name="date_aditivacao"
+                                readonly="1"
                                 attrs="{'invisible': [('state','!=','confirmado')]}"
                             />
                             <!-- AX4B - CPTM - ADITIVAR CONTRATO -->

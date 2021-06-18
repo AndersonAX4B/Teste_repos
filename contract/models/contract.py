@@ -146,14 +146,25 @@ class ContractContract(models.Model):
 
 
     def write(self, vals):
-        if self.state == 'confirmado':
-            self.action_aditivar_contrato()
         if "modification_ids" in vals:
             res = super(
                 ContractContract, self.with_context(bypass_modification_send=True)
             ).write(vals)
             self._modification_mail_send()
         else:
+            # AX4B - CPTM - ADITIVAR CONTRATO
+            if self.state == 'confirmado':
+                vals['cd_aditivo_n'] = self.cd_aditivo_n + 1
+                vals['data_aditivacao'] = self.date.today()
+                alteracoes = ""
+                for rec in vals:
+                    alteracoes += _(_("<br> Campo <strong>%s</strong> alterado de %s para %s")
+                    % (rec, self[rec], vals[rec]))
+
+                self.message_post(body=_(
+                    "Contrato ADITIVADO, mudanças:" + alteracoes
+                ))
+            # AX4B - CPTM - ADITIVAR CONTRATO
             res = super(ContractContract, self).write(vals)
         return res
 
@@ -654,54 +665,21 @@ class ContractContract(models.Model):
 
     # AX4B - CPTM - CONTRATO MEDIÇÃO
     state = fields.Selection([('rascunho', 'Rascunho'), ('confirmado', 'Confirmado')], default ="rascunho")
-        
+
     def action_confirmar_receber_fatura(self):
         self.write({'state': 'confirmado'})
 
         # self._clear_receber_fatura_line_unused()
-        
+
         # if self._exist_receber_fatura_to_contrato_fornecedor():
         #     self._create_receber_fatura_line()
         # else:
         #     self._create_receber_fatura()
-        #     self._create_receber_fatura_line()  
+        #     self._create_receber_fatura_line()
 
     # Variaveis de Ambiente Gabriel e Eduardo
 
     # invoice_count = fields.Integer(compute="_compute_invoice_count")
-
-    # AX4B - CPTM - ADITIVAR CONTRATO
-    from datetime import date
-    cd_aditivo_n = fields.Integer(string="Aditivo Nº", readonly="1", default=0)
-    date_aditivacao = fields.Date(string="Data de Aditivaçao")
-    
-    def action_aditivar_contrato(self):
-        self.date_aditivacao = self.date.today()
-        raise ValidationError(self)
-        # self.cd_aditivo_n = self.cd_aditivo_n + 1
-        # self.date_aditivacao = self.date.today()
-    # AX4B - CPTM - ADITIVAR CONTRATO
-
-    # def write(self, vals):
-    #     # AX4B - CPTM - ADITIVAR CONTRATO
-    #     if self.state == 'confirmado':
-    #         self.action_aditivar_contrato()
-    #     # AX4B - CPTM - ADITIVAR CONTRATO
-    #     if "date_end" in vals:
-    #         self.message_post(body=_(
-    #             _("A data final foi alterada de %s para: '%s'.")
-    #             % (self.date_end, vals["date_end"])
-    #         ))
-    #     if "modification_ids" in vals:
-    #         res = super(
-    #             ContractContract, self.with_context(bypass_modification_send=True)
-    #         ).write(vals)
-    #         self._modification_mail_send()
-    #     else:
-    #         res = super(ContractContract, self).write(vals)
-    #     return res
-
-    #  fim de código Eduardo e Gabriel
 
     def _create_receber_fatura_line(self):
         exist_receber_fatura = self._exist_receber_fatura_to_contrato_fornecedor()
@@ -715,7 +693,7 @@ class ContractContract(models.Model):
                     }
                     self.env["contract.receber_fatura_line"].create(vals)
                     self.env.cr.commit()
-        
+
     def _create_receber_fatura(self):
         vals = {
             "contract_id": self.id,
@@ -724,15 +702,15 @@ class ContractContract(models.Model):
 
         self.env["contract.receber_fatura"].create(vals)
         self.env.cr.commit()
-        
+
     def _exist_receber_fatura_to_contrato_fornecedor(self):
         exist_receber_fatura = self.env['contract.receber_fatura'].search([('contract_id', '=', self.id)])
         return exist_receber_fatura
-        
+
     def _clear_receber_fatura_line_unused(self):
         delete_receber_faturas_unused = self.env["contract.receber_fatura_line"].search([('products_list', '=', False)])
         delete_receber_faturas_unused.unlink()
-        
+
     def action_receber_fatura(self):
         self.action_confirmar_receber_fatura()
         exist_receber_fatura = self._exist_receber_fatura_to_contrato_fornecedor()
@@ -744,3 +722,9 @@ class ContractContract(models.Model):
             'target': 'new'
         }
     # AX4B - CPTM - CONTRATO MEDIÇÃO
+
+    # AX4B - CPTM - ADITIVAR CONTRATO
+    from datetime import date
+    cd_aditivo_n = fields.Integer(string="Aditivo Nº", default=0)
+    data_aditivacao = fields.Date(string="Data de Aditivaçao")
+    # AX4B - CPTM - ADITIVAR CONTRATO
