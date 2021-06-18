@@ -154,7 +154,7 @@
                                 attrs="{'invisible': [('state','!=','confirmado')]}"
                             />
                             <field
-                                name="date_aditivacao"
+                                name="data_aditivacao"
                                 readonly="1"
                                 attrs="{'invisible': [('state','!=','confirmado')]}"
                             />
