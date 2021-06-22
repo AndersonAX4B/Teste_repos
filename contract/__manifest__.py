@@ -47,4 +47,6 @@
         "views/contract_portal_templates.xml",
     ],
     "installable": True,
+    "application": True,
+    "sequence": 1
 }
