@@ -52,5 +52,15 @@
       </field>
     </record>
 
+    <!-- SEQUENCIA PARA CONTRATO CONSORCIO -->
+    <record model="ir.sequence" id="contrato_consorcio_id">
+      <field name="name">Library Sequece</field>
+      <field name="code">contract.contrato_consorcio</field>
+      <field name="prefix"></field>
+      <field name="suffix"></field>
+      <field name="number_next">1</field>
+      <field name="padding">10</field>
+    </record>
+
   </data>
 </odoo>
