@@ -20,7 +20,7 @@
         <tree>
           <field name="name" />
           <field name="cd_descricao" />
-          <field name="cd_ativo" />
+          <field name="cd_ativo" widget="boolean_toggle" />
         </tree>
       </field>
     </record>
@@ -40,7 +40,7 @@
             </div>
             <group>
               <field name="cd_descricao" />
-              <field name="cd_ativo" widget="boolean toggle" />
+              <field name="cd_ativo" widget="boolean_toggle" />
             </group>
             <notebook>
               <page string="Contratos">

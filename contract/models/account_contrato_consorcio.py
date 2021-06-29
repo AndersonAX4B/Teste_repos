@@ -12,8 +12,8 @@ class ContratoConsorcio(models.Model):
         copy=False, 
         index=True, 
         readonly=True)
-    cd_descricao = fields.Text()
-    cd_ativo = fields.Boolean(default=False)
+    cd_descricao = fields.Text(string="Descrição")
+    cd_ativo = fields.Boolean(default=False, string="Ativo")
 
     contratos = fields.One2many('contract.contrato_consorcio_linha', 'contrato_id', string='Contratos')
 
@@ -35,7 +35,7 @@ class ContratoConsorcioLinha(models.Model):
     cd_email = fields.Char(related='name.email', string="Email")
     cd_telefone = fields.Char(related='name.phone', string="Telefone")
     cd_participacao = fields.Integer(string="Participação")
-    cd_ativo = fields.Boolean(default=False)
+    cd_ativo = fields.Boolean(default=False, string="Ativo")
 
     contrato_id = fields.Many2one('contract.contrato_consorcio', string="Contrato")
 
