@@ -8,7 +8,7 @@ class ContratoConsorcio(models.Model):
 
     name = fields.Char(
         string="Código", 
-        default="New", 
+        default="COD", 
         copy=False, 
         index=True, 
         readonly=True)
@@ -20,7 +20,7 @@ class ContratoConsorcio(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get('name', 'New') == 'New':
+        if vals.get('name', 'COD') == 'COD':
             vals['name'] = self.env['ir.sequence'].next_by_code(
                 'contract.contrato_consorcio')
 
@@ -34,7 +34,7 @@ class ContratoConsorcioLinha(models.Model):
     cd_contato = fields.Char(related='name.mobile', string="Contato")
     cd_email = fields.Char(related='name.email', string="Email")
     cd_telefone = fields.Char(related='name.phone', string="Telefone")
-    cd_participacao = fields.Integer(string="Participação")
+    cd_participacao = fields.Integer(string="Participação %")
     cd_ativo = fields.Boolean(default=False, string="Ativo")
 
     contrato_id = fields.Many2one('contract.contrato_consorcio', string="Contrato")
