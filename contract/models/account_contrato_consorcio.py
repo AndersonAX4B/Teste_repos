@@ -25,7 +25,7 @@ class ContratoConsorcioLinha(models.Model):
 
     contrato_id = fields.Many2one('contract.contrato_consorcio', string="Contrato")
 
-    @api.contrains('cd_ativo')
+    @api.constrains('cd_ativo')
     def verificar_porcentagem(self):
         if self.cd_ativo < 0 or self.cd_ativo > 100:
             raise ValidationError("Campo participação deve ser maior que 0 e menor que 100!")
