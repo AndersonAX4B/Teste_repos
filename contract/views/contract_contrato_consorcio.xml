@@ -40,10 +40,10 @@
             </div>
             <group>
               <field name="cd_descricao" />
-              <field name="cd_ativo" widget="toggle_boolean" />
+              <field name="cd_ativo" widget="boolean toggle" />
             </group>
             <notebook>
-              <page string="Contratos">
+              <page string="Contratos" editable="top">
                 <field name="contratos" />
               </page>
             </notebook>

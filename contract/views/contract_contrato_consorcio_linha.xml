@@ -20,7 +20,7 @@
           <field name="cd_email" />
           <field name="cd_telefone" />
           <field name="cd_participacao" />
-          <field name="cd_ativo" />
+          <field name="cd_ativo" widget="boolean toggle" />
         </tree>
       </field>
     </record>
@@ -37,7 +37,7 @@
             <field name="cd_email" />
             <field name="cd_telefone" />
             <field name="cd_participacao" />
-            <field name="cd_ativo" />
+            <field name="cd_ativo" widget="boolean toggle" />
           </group>
         </form>
       </field>
