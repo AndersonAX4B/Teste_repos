@@ -35,7 +35,7 @@
           <sheet>
             <div class="oe_title">
               <h1>
-                <field name="name" placeholder="Name..." />
+                <field name="name" />
               </h1>
             </div>
             <group>
@@ -53,8 +53,8 @@
     </record>
 
     <!-- SEQUENCIA PARA CONTRATO CONSORCIO -->
-    <record model="ir.sequence" id="contrato_consorcio_id">
-      <field name="name">Library Sequece</field>
+    <record model="ir.sequence" id="contrato_consorcio_linha_id">
+      <field name="name">Consórcio Sequece</field>
       <field name="code">contract.contrato_consorcio</field>
       <field name="prefix"></field>
       <field name="suffix"></field>

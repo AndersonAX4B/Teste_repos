@@ -8,14 +8,13 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-
     <!-- EXPLICIT LIST VIEW DEFINITION -->
     <record model="ir.ui.view" id="contrato_consorcio_linha_list">
       <field name="name">Contrato Consorcio Linha List</field>
       <field name="model">contract.contrato_consorcio_linha</field>
       <field name="arch" type="xml">
-        <tree editable="top">
-          <field name="name" />
+        <tree editable="bottom">
+          <field name="cd_fornecedores" />
           <field name="cd_contato" />
           <field name="cd_email" />
           <field name="cd_telefone" />
@@ -32,7 +31,7 @@
       <field name="arch" type="xml">
         <form>
           <group>
-            <field name="name" />
+            <field name="cd_fornecedores" />
             <field name="cd_contato" />
             <field name="cd_email" />
             <field name="cd_telefone" />
@@ -42,5 +41,16 @@
         </form>
       </field>
     </record>
+
+    <!-- SEQUENCIA PARA CONTRATO CONSORCIO LINHA -->
+    <record model="ir.sequence" id="contrato_consorcio_id">
+      <field name="name">Consórcio Linha Sequece</field>
+      <field name="code">contract.contrato_consorcio_linha</field>
+      <field name="prefix"></field>
+      <field name="suffix"></field>
+      <field name="number_next">1</field>
+      <field name="padding">10</field>
+    </record>
+
   </data>
 </odoo>
