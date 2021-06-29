@@ -43,7 +43,7 @@
               <field name="cd_ativo" widget="boolean toggle" />
             </group>
             <notebook>
-              <page string="Contratos" editable="top">
+              <page string="Contratos">
                 <field name="contratos" />
               </page>
             </notebook>

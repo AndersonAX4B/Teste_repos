@@ -14,7 +14,7 @@
       <field name="name">Contrato Consorcio Linha List</field>
       <field name="model">contract.contrato_consorcio_linha</field>
       <field name="arch" type="xml">
-        <tree>
+        <tree editable="top">
           <field name="name" />
           <field name="cd_contato" />
           <field name="cd_email" />
