@@ -14,3 +14,5 @@
 "contract_line_wizard","contract_line_wizard","model_contract_line_wizard","account.group_account_manager",1,1,1,1
 "contract_manually_create_invoice_wizard","contract_manually_create_invoice_wizard","model_contract_manually_create_invoice","account.group_account_invoice",1,1,1,1
 "contract_contract_terminate_wizard","contract_contract_terminate_wizard","model_contract_contract_terminate","contract.can_terminate_contract",1,1,1,1
+"access_contract_contrato_consorcio","contract.contrato_consorcio","model_contract_contrato_consorcio",,1,1,1,1
+"access_contract_contrato_consorcio_linha","contract.contrato_consorcio_linha","model_contract_contrato_consorcio_linha",,1,1,1,1

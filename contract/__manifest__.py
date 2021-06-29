@@ -45,6 +45,8 @@
         "views/res_config_settings.xml",
         "views/contract_terminate_reason.xml",
         "views/contract_portal_templates.xml",
+        "views/contract_contrato_consorcio.xml",
+        "views/contract_contrato_consorcio_linha.xml",
     ],
     "installable": True,
     "application": True,

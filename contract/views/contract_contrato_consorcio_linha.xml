@@ -1,0 +1,46 @@
+<odoo>
+  <data>
+
+    <!-- ACTIONS OPENING VIEWS ON MODELS -->
+    <record model="ir.actions.act_window" id="contrato_consorcio_linha_action_window">
+      <field name="name">Contrato Consorcio Linha</field>
+      <field name="res_model">contract.contrato_consorcio_linha_linha</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- EXPLICIT LIST VIEW DEFINITION -->
+    <record model="ir.ui.view" id="contrato_consorcio_linha_list">
+      <field name="name">Contrato Consorcio Linha List</field>
+      <field name="model">contract.contrato_consorcio_linha_linha</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" />
+          <field name="cd_contato" />
+          <field name="cd_email" />
+          <field name="cd_telefone" />
+          <field name="cd_participacao" />
+          <field name="cd_ativo" />
+        </tree>
+      </field>
+    </record>
+
+    <!-- EXPLICIT FORM VIEW DEFINITION -->
+    <record model="ir.ui.view" id="contrato_consorcio_linha_form">
+      <field name="name">Contrato Consorcio Linha form</field>
+      <field name="model">contract.contrato_consorcio_linha_linha</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="name" />
+            <field name="cd_contato" />
+            <field name="cd_email" />
+            <field name="cd_telefone" />
+            <field name="cd_participacao" />
+            <field name="cd_ativo" />
+          </group>
+        </form>
+      </field>
+    </record>
+  </data>
+</odoo>
