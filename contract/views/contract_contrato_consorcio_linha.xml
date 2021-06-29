@@ -36,7 +36,7 @@
             <field name="cd_contato" />
             <field name="cd_email" />
             <field name="cd_telefone" />
-            <field name="cd_participacao" />
+            <field name="cd_participacao" string="Participação (%)" />
             <field name="cd_ativo" widget="boolean_toggle" />
           </group>
         </form>
