@@ -646,3 +646,4 @@ class ContractContract(models.Model):
                 "terminate_date": False,
             }
         )
+    
