@@ -455,6 +455,12 @@ msgid "Commercial Entity"
 msgstr "Entidade Comercial"
 
 #. module: contract
+#: model:ir.model.fields,field_description:contract.field_contract_contract__cod_reserva_garantia
+#: model_terms:ir.ui.view,arch_db:contract.contract_contract_form_view
+msgid "Reserva de Garantia"
+msgstr "Guarantee Reserve"
+
+#. module: contract
 #: model_terms:ir.ui.view,arch_db:contract.portal_contract_page
 msgid "Communication"
 msgstr ""
